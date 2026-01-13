@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 AI 学习主页</title>
+    <style>
+        /* --- 全局设置 --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            /* ⚠️ 记得确认这里的图片文件名是你本地的那张 */
+            background-image: url('background.png'); 
+            
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        /* --- 第一屏：封面与名片 --- */
+        .hero-section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 8vh;
+            box-sizing: border-box;
+        }
+
+        /* 名片卡片 */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.75); 
+            backdrop-filter: blur(20px);           
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-3px);
+        }
+
+        h1 {
+            font-size: 22px;
+            margin: 5px 0;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        p.title {
+            color: #4a5568;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: white;
+            background-color: #2d3748; 
+            padding: 8px 18px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 0 5px;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .social-links a:hover {
+            background-color: #000000;
+            transform: translateY(-1px);
+        }
+
+        /* 下滑提示箭头动画 */
+        .scroll-indicator {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 24px;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* --- 第二屏：学习复盘墙 --- */
+        .learning-section {
+            min-height: 100vh;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.6); 
+            backdrop-filter: blur(10px);    
+        }
+
+        .section-title {
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-weight: bold;
+        }
+
+        /* 卡片网格布局 */
+        .cards-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px;
+        }
+
+        /* 单个学习卡片 */
+        .learning-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .learning-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #ddd;
+            width: 100%;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .tag {
+            background-color: #e2e8f0;
+            color: #4a5568;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: #2d3748;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="profile-card">
+            <h1>小付</h1>
+            <p class="title">AI 学习者 / 设计师</p>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">WeChat</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            ▼
+        </div>
+    </div>
+
+    <div class="learning-section">
+        <h2 class="section-title">学习复盘记录</h2>
+        
+        <div class="cards-container">
+            
+            <div class="learning-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1607799275518-d58665d099db?auto=format&fit=crop&w=800" alt="GitHub学习">
+                </div>
+                <div class="card-content">
+                    <span class="tag">环境配置</span>
+                    <h3 class="card-title">学会使用 GitHub</h3>
+                    <p class="card-desc">
+                        <strong>任务：</strong>搭建代码仓库<br>
+                        <strong>收获：</strong>理解了 commit 和 push 的概念，成功上传了第一个项目。
+                    </p>
+                </div>
+            </div>
+
+            <div class="learning-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800" alt="VSCode">
+                </div>
+                <div class="card-content">
+                    <span class="tag">工具掌握</span>
+                    <h3 class="card-title">VSCode 环境配置</h3>
+                    <p class="card-desc">
+                        <strong>任务：</strong>配置本地 AI 助手<br>
+                        <strong>收获：</strong>安装了 Copilot 插件，体验了自动写代码的快乐。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+    <script>
+      new CozeWebSDK.WebChatClient({
+        config: {
+          /* 这是你之前提供的 Bot ID，请确保没变 */
+          bot_id: '7594753599700647977', 
+        },
+        componentProps: {
+          title: '小付的 AI 助手',
+        },
+        auth: {
+          type: 'token',
+          /* 👇 你的真实 Token 已经填在这里了 */
+          token: 'pat_UUijXfckAFKnn62EB6hlkskVxoBKpNuvWMci3PMRu3UuWBsMw2tl49GlxPNl5cVE', 
+          onRefreshToken: function () {
+            return 'pat_UUijXfckAFKnn62EB6hlkskVxoBKpNuvWMci3PMRu3UuWBsMw2tl49GlxPNl5cVE'
+          }
+        }
+      });
+    </script>
+
+</body>
+</html>
